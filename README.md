@@ -33,3 +33,9 @@ simplewal/
 ├── LICENSE                 # License file (e.g., MIT, Apache-2.0)
 └── .gitignore              # Git ignore file
 ```
+
+## Usage
+
+```
+bazel run //:simplewal -- 2 3
+```
