@@ -36,6 +36,12 @@ simplewal/
 
 ## Usage
 
+Build and run cmd tool
 ```
 bazel run //:simplewal -- 2 3
+```
+
+Run tests
+```
+bazel test //:wal_test
 ```
