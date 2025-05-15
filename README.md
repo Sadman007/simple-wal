@@ -22,13 +22,10 @@ simplewal/
 │   └── wal.proto           # Protobuf definitions for log entries
 ├── scripts/                # Utility scripts
 │   └── generate.sh         # Script for generating protos or other code
-├── test/                   # Integration or end-to-end tests
-│   └── integration_test.go # Integration tests for WAL
 ├── examples/               # Example usage of the WAL
 │   └── basic/              # Simple example
 │       └── main.go         # Example code using the WAL
 ├── BUILD.bazel             # Root Bazel build file
-├── WORKSPACE               # Bazel workspace file
 ├── README.md               # Project documentation
 ├── LICENSE                 # License file (e.g., MIT, Apache-2.0)
 └── .gitignore              # Git ignore file
@@ -38,10 +35,10 @@ simplewal/
 
 Build and run cmd tool
 ```
-bazel run //:simplewal -- 2 3
+bazel run //:wal -- 2 3
 ```
 
 Run tests
 ```
-bazel test //:wal_test
+bazel test //internal/wal:wal_test
 ```
