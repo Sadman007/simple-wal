@@ -25,7 +25,7 @@ simplewal/
 ├── examples/               # Example usage of the WAL
 │   └── basic/              # Simple example
 │       └── main.go         # Example code using the WAL
-├── BUILD.bazel             # Root Bazel build file
+├── BUILD                   # Root Bazel build file
 ├── README.md               # Project documentation
 ├── LICENSE                 # License file (e.g., MIT, Apache-2.0)
 └── .gitignore              # Git ignore file
@@ -33,7 +33,12 @@ simplewal/
 
 ## Usage
 
-Build and run cmd tool
+Build all
+```
+bazel build //...
+```
+
+Run cmd tool
 ```
 bazel run //:wal -- 2 3
 ```
