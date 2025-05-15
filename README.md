@@ -40,5 +40,5 @@ bazel run //:wal -- 2 3
 
 Run tests
 ```
-bazel test //internal/wal:wal_test
+bazel test //...
 ```
