@@ -5,11 +5,10 @@ go_proto_library(
     name = "wal_go_proto",
     protos = [":wal_proto"],
     importpath = "simplewal/proto",
-    visibility = ["//visibility:public"],
 )
 
 proto_library(
     name = "wal_proto",
     srcs = ["wal.proto"],
-    visibility = ["//visibility:public"],
+    visibility = ["//proto:__subpackages__"],
 )
