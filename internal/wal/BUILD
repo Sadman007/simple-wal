@@ -4,7 +4,7 @@ go_library(
     name = "wal_lib",
     srcs = ["wal.go"],
     importpath = "simplewal/internal/wal",
-    visibility = ["//visibility:public"],
+    visibility = ["//:__subpackages__"],
 )
 
 go_test(
