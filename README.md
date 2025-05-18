@@ -4,7 +4,8 @@
 simplewal/
 ├── cmd/                    # Command-line entry points (if building an executable)
 │   └── simplewal/          # Main application binary
-│       └── main.go         # Entry point for the CLI or server
+│       ├── main.go         # Entry point for the CLI or server
+|       └── BUILD           # BUILD file for the CLI tool
 ├── internal/               # Private code (not importable by other projects)
 │   ├── wal/                # Core WAL implementation
 │   │   ├── wal.go          # Main WAL logic (e.g., append, read, recover)
@@ -25,7 +26,6 @@ simplewal/
 ├── examples/               # Example usage of the WAL
 │   └── basic/              # Simple example
 │       └── main.go         # Example code using the WAL
-├── BUILD                   # Root Bazel build file
 ├── README.md               # Project documentation
 ├── LICENSE                 # License file (e.g., MIT, Apache-2.0)
 └── .gitignore              # Git ignore file

@@ -1,8 +1,8 @@
 package wal
 
 import (
-	"testing"
 	"simplewal/internal/wal"
+	"testing"
 )
 
 // TestAdd verifies the Add function for various input cases.
