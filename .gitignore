@@ -1,10 +1,3 @@
 # Ignore Bazel build output directories and symlinks
 bazel-*
-!bazel-bin/
-!bazel-genfiles/
-!bazel-testlogs/
-bazel-bin/*
-bazel-genfiles/*
-bazel-testlogs/*
-bazel-out/
 MODULE.bazel.lock
