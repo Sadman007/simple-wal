@@ -40,7 +40,7 @@ bazel build //...
 
 Run cmd tool
 ```
-bazel run //cmd/simplewal:wal -- 2 3
+bazel run //cmd/simplewal:wal
 ```
 
 Run tests
