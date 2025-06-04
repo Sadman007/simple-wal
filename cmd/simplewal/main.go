@@ -1,45 +1,27 @@
 package main
 
 import (
-	"flag"
 	"fmt"
-	"os"
-	"strconv"
+	"time"
 
-	"simplewal/internal/wal"
+	"github.com/Sadman007/simplewal/internal/wal"
 )
 
-// usage prints the CLI usage instructions and exits.
-func usage() {
-	fmt.Fprintf(os.Stderr, "Usage: %s <a> <b>\n", os.Args[0])
-	fmt.Fprintf(os.Stderr, "Adds two integers using the WAL package.\n")
-	fmt.Fprintf(os.Stderr, "Example: %s 2 3\n", os.Args[0])
-	os.Exit(1)
-}
-
 func main() {
-	// Define flags
-	help := flag.Bool("help", false, "Show usage information")
-	flag.Parse()
-
-	// Show usage if -help is specified or args are invalid
-	if *help || len(flag.Args()) != 2 {
-		usage()
+	wal, _ := wal.InitWAL(wal.CreateDefaultWALConfig("/home/sadmansakib/code/simplewal"))
+	if err := wal.WriteEntryWithCheckpoint([]byte("test 11")); err != nil {
+		fmt.Printf("failed to write entry: %v\n", err)
 	}
 
-	// Parse command-line arguments
-	a, err := strconv.Atoi(flag.Args()[0])
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error: invalid first argument %q: %v\n", flag.Args()[0], err)
-		usage()
-	}
-	b, err := strconv.Atoi(flag.Args()[1])
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error: invalid second argument %q: %v\n", flag.Args()[1], err)
-		usage()
+	if err := wal.WriteEntry([]byte("42")); err != nil {
+		fmt.Printf("failed to write entry: %v\n", err)
 	}
 
-	// Call the Add function from the wal package
-	result := wal.Add(a, b)
-	fmt.Printf("%d + %d = %d\n", a, b, result)
+	time.Sleep(301 * time.Millisecond)
+
+	entries, _ := wal.ReadAll()
+	fmt.Printf("Read %d entries from the WAL:\n", len(entries))
+	for _, entry := range entries {
+		fmt.Printf("LogSeqNumber: %d, Data: %s, IsCheckpoint: %t\n", entry.LogSeqNumber, entry.Data, entry.IsCheckpoint)
+	}
 }

@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-option go_package = "simplewal/proto";
+package proto;
+
+option go_package = "github.com/Sadman007/simplewal/proto";
 
 message WAL_Entry {
     uint64 logSeqNumber = 1;
